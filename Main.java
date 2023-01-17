@@ -31,19 +31,26 @@ public class Main {
 
         while(go) {
             System.out.print("\nWhat word would you like to add? ");
-            String word = in.next();
-            if (word.equals("DONE")) {
-                go = false;
+            String word = in.nextLine();
+            if (word.equals("")) {
+                System.out.println("Please type something in.");
+            } else {
+                if (word.equals("DONE") || word.equals("done")) {
+                    go = false;
+                }
+                else {
+                    System.out.print("What is the corresponding definition? ");
+                    String def = in.nextLine();
+                    quizGame.add(new FlashCard(word, def));
+                    size++;
+                }
+                System.out.println("Added!");
             }
-            else {
-                System.out.print("What is the corresponding definition? ");
-                String def = in.next();
-                quizGame.add(new FlashCard(word, def));
-                size++;
-            }
+
         }
 
         processCommands(in);
+
     }
 
     public static void processCommands(Scanner in) {
@@ -156,5 +163,6 @@ public class Main {
 
         processCommands(in);
     }
+
 
 }

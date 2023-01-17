@@ -82,8 +82,8 @@ public class Game {
         }
 
         System.out.print("\nT or F ");
-        String input = in.next();
-        if ((input.equals("T") && num == 0) || (input.equals("F") && num == 1))  {
+        String input = in.next().toLowerCase();
+        if ((input.equals("t") && num == 0) || (input.equals("f") && num == 1))  {
             System.out.print("Correct!\n");
             score++;
         }
